@@ -165,8 +165,8 @@ RUN mkdir -p ~/opensim-workspace/opensim-gui-source/build && \
     make CopyOpenSimCore && \
     make PrepareInstaller
 
-RUN echo "export USER='$(whoami)'"" >> ~/.bashrc
-
+RUN echo "export USER='$(whoami)'" >> ~/.bashrc
+RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y xorg xserver-xorg xvfb libx11-dev libxext-dev
 # Install opensim-gui.
 RUN cd ~/opensim-workspace/opensim-gui-source/Gui/opensim/dist/installer/opensim && \
     bash INSTALL
