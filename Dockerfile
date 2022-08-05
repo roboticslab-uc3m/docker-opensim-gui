@@ -166,6 +166,8 @@ RUN mkdir -p ~/opensim-workspace/opensim-gui-source/build && \
     make PrepareInstaller
 
 RUN echo "export USER='$(whoami)'" >> ~/.bashrc
+
+# Install dependencies that support WebGL https://stackoverflow.com/questions/69351416/docker-webgl-headless-chrome-error-passthrough-is-not-supported-gl-is-disa
 RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y xorg xserver-xorg xvfb libx11-dev libxext-dev
 # Install opensim-gui.
 RUN cd ~/opensim-workspace/opensim-gui-source/Gui/opensim/dist/installer/opensim && \
