@@ -172,5 +172,8 @@ RUN sudo DEBIAN_FRONTEND=noninteractive apt-get install -y xorg xserver-xorg xvf
 # Install opensim-gui.
 RUN cd ~/opensim-workspace/opensim-gui-source/Gui/opensim/dist/installer/opensim && \
     bash INSTALL
+# Install Python module.
+RUN cd /opt/opensim-gui/sdk/Python && \
+    sudo python3 setup.py install
 
 CMD ["/opt/opensim-gui/bin/opensim"]
