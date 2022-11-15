@@ -2,6 +2,11 @@ ARG BASE_IMAGE=ubuntu:18.04
 #Download base image ubuntu 20.04
 FROM $BASE_IMAGE
 
+# nvidia-container-runtime <http://wiki.ros.org/docker/Tutorials/Hardware%20Acceleration#nvidia-docker2>
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
 # Dockerfile info
 LABEL maintainer="monte.igna@gmail.com"
